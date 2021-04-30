@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@fluentui/react": "^8.13.1",
+    "@uifabric/react-cards": "^0.115.46"
+  }
+}
