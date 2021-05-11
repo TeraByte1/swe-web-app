@@ -4,6 +4,7 @@ import MeOtherOps from './MeOtherOptions';
 import AgeOptions from './AgeOptions';
 import MedConditions from './MedConditions';
 import LastPredsPage from './LastPredsPage';
+import HomePage from './HomePage';
 
  
 
@@ -113,13 +114,21 @@ render() {
     switch (page) {
         case 1:
             return (
+                <HomePage
+                nextPage = {this.nextPage} 
+                //handleChange = {this.handleChange}
+                vals = {vals}
+                />
+            )  
+        case 2:
+            return (
                 <MeOtherOps
                 nextPage = {this.nextPage} 
                 handleChange = {this.handleChange}
                 vals = {vals}
                 />
             )    
-        case 2:
+        case 3:
             return (
                 <AgeOptions
                 nextPage = {this.nextPage} 
@@ -128,7 +137,7 @@ render() {
                 vals = {vals}
                 />
             )
-        case 3:
+        case 4:
             return (
                 <MedConditions
                 nextPage = {this.nextPage}
@@ -138,7 +147,7 @@ render() {
                 />
             )    
 
-        case 4:
+        case 5:
         return (<LastPredsPage
         startOver = {this.startOver}
         vals = {vals}
