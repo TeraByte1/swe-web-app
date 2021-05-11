@@ -11,7 +11,7 @@ export class Form extends Component {
     state = {
         'page': 1,
         'me_other': "", //choice: myself or others
-        'age': 60,
+        'age': 0,
         'high_risk_exposure_occupation': false,
         'high_risk_interactions': false,
         'diabetes': false,
@@ -22,8 +22,8 @@ export class Form extends Component {
         'copd': false,
         'autoimmune_dis': false,
         'smoker': false,
-        'temperature': 39,
-        'pulse': 90,
+        'temperature': 0,
+        'pulse': 0,
         'labored_respiration': false,
         'cough': false,
         'fever': false,
@@ -52,6 +52,38 @@ backPage = () => {
     });
 }
 
+startOver = () => {
+    const { page } = this.state;
+    this.setState({
+        page: 1,
+        'me_other': "", //choice: myself or others
+        'age': 0,
+        'high_risk_exposure_occupation': false,
+        'high_risk_interactions': false,
+        'diabetes': false,
+        'chd': false,
+        'htn': false,
+        'cancer': false,
+        'asthma': false,
+        'copd': false,
+        'autoimmune_dis': false,
+        'smoker': false,
+        'temperature': 0,
+        'pulse': 0,
+        'labored_respiration': false,
+        'cough': false,
+        'fever': false,
+        'sob': false,
+        'diarrhea': false,
+        'fatigue': false,
+        'headache': false,
+        'loss_of_smell': false,
+        'loss_of_taste': false,
+        'runny_nose': false,
+        'muscle_sore': false,
+        'sore_throat': false
+    });
+}
 //input = which state object
 //e = element that was clicked
 handleChange = input => e => {
@@ -107,9 +139,10 @@ render() {
             )    
 
         case 4:
-        return <LastPredsPage
-        backPage = {this.backPage}
-        vals = {vals}/>;    
+        return (<LastPredsPage
+        startOver = {this.startOver}
+        vals = {vals}
+        />)   
 
         default:
         break;

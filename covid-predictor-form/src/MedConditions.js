@@ -72,7 +72,7 @@ export class MedConditions extends Component{
             onClick={this.goBack}
             />
             <div>
-            <h3>Which of the following conditions apply to you?</h3>
+            <h3>Which of the following conditions apply to them?</h3>
             </div>
             <Stack tokens={stackTokens}>
              <Toggle label="Cough" inlineLabel value="true" inlineText onChange={handleChange('cough')} />
