@@ -99,7 +99,7 @@ export class MedConditions extends Component{
             </div>
             <div className="next-button">
             <PrimaryButton 
-            text = "Next"
+            text = "Calculate Prediction"
             onClick={this.goNext}
             />
             </div>

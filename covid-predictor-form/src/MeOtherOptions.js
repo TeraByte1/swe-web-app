@@ -10,18 +10,16 @@ const options: IChoiceGroupOption[] = [
 ];
 
 export class MeOtherOps extends Component{
-goNext = e => {
-        this.props.nextPage();
-        console.log(this.props);
-    };
-goBack = e => {
-        this.props.backPage();
-    };    
+    goNext = e => {
+            this.props.nextPage();
+            console.log(this.props);
+        };
+    goBack = e => {
+            this.props.backPage();
+        };    
 
     render(){
        const { vals, handleChange } = this.props;
-
-    
     return (
         <div id="parent">
         <div className="whoFor">
@@ -37,8 +35,6 @@ goBack = e => {
             </div>
         </div>    
     );
-   
    } //end render
 } //end  
-
 export default MeOtherOps;

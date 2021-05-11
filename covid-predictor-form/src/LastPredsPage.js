@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Component} from 'react';
 import { PrimaryButton } from '@fluentui/react/lib/Button';
+import { Spinner, Label } from '@fluentui/react/';
 import axios from 'axios';
 
 export class LastPredsPage extends Component {
@@ -12,15 +13,17 @@ export class LastPredsPage extends Component {
     };
 
     getPreds = e => {
-        //componentDidMount(){
-
         const url = "https://covid.joshgarde.com/nn-submit";
-    
         this.state = this.props;
+       /* document.getElementById("pred").innerHTML=(
+        <div>
+        <Label>Spinner with label positioned to right</Label>
+        <Spinner label="Wait, wait..." ariaLive="assertive" labelPosition="right" />
+      </div> ); */
         axios.post(url, this.state.vals)
         .then(response => {
-           console.log(response.data.prediction) 
-           document.getElementById("pred").innerHTML=((response.data.prediction)*100).toFixed(2) + " %";
+           console.log("Prediction: "+ response.data.prediction) 
+           document.getElementById("pred").innerHTML=( (response.data.prediction)*100) .toFixed(2) + " %";
         })
         .catch(error => {
             console.log(error)
@@ -31,17 +34,18 @@ export class LastPredsPage extends Component {
         const text = "hello";
         const { vals, startOver } = this.props;
         this.getPreds();
+       
     return (
         <div>
         <PrimaryButton 
             text = "Start Over"
             onClick={this.rewind}
             />
-        <h2>You have a</h2>
+        <div>   
+        <h2>Your chances of contracting COVID-19:</h2>
         <div id="pred"></div>
-        <h2>chance of contracting COVID-19</h2>
         </div>
-       
+       </div>
     );
    } //end render
 } //end
