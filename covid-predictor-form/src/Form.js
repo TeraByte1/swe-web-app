@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Component} from 'react';
 import MeOtherOps from './MeOtherOptions';
 import AgeOptions from './AgeOptions';
-import EthnicityOps from './EthnicityOps';
 import MedConditions from './MedConditions';
 import LastPredsPage from './LastPredsPage';
 
