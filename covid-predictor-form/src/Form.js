@@ -10,11 +10,33 @@ import LastPredsPage from './LastPredsPage';
 
 export class Form extends Component {
     state = {
-        page: 1,
-        me_other: "", //choice: myself or others
-        age: "", 
-        ethnicity: "",
-        medConditions: []
+        'page': 1,
+        'me_other': "", //choice: myself or others
+        'age': 60,
+        'high_risk_exposure_occupation': false,
+        'high_risk_interactions': false,
+        'diabetes': false,
+        'chd': false,
+        'htn': false,
+        'cancer': false,
+        'asthma': false,
+        'copd': false,
+        'autoimmune_dis': false,
+        'smoker': false,
+        'temperature': 39,
+        'pulse': 90,
+        'labored_respiration': false,
+        'cough': false,
+        'fever': false,
+        'sob': false,
+        'diarrhea': false,
+        'fatigue': false,
+        'headache': false,
+        'loss_of_smell': false,
+        'loss_of_taste': false,
+        'runny_nose': false,
+        'muscle_sore': false,
+        'sore_throat': false
     };
 
 nextPage = () => {
@@ -31,16 +53,31 @@ backPage = () => {
     });
 }
 
+//input = which state object
+//e = element that was clicked
 handleChange = input => e => {
-    this.setState({
-        [input]: e.target.value
-    });
+    console.log("input:"+input+" changed");
+    if(input==="age" || input==="temperature" || input==="pulse"){
+        this.setState({
+            [input]: e
+        })
+    }
+    else if(e.target.value==="on" || e.target.value==="true"){
+        this.setState({
+            [input]: true} );   
+    }
+    else if(e.target.value==="Myself" || e.target.value==="Someone Else"){
+        this.setState({
+            [input]: e.target.value});
+    }
 }
+
+
 
 render() {
     const { page } = this.state;
-    const { me_other, age, ethnicity, medConditions } = this.state;
-    const vals = { me_other, age, ethnicity, medConditions};
+    const { me_other, age, diabetes, chd, htn, cancer, asthma, copd, autoimmune_dis, smoker, temperature, pulse, labored_respiration, cough, fever, sob, diarrhea, fatigue, headache, loss_of_smell, loss_of_taste, runny_nose, muscle_sore, sore_throat, high_risk_exposure_occupation, high_risk_interactions} = this.state;
+    const vals = { me_other, age, diabetes, chd, htn, cancer, asthma, copd, autoimmune_dis, smoker, temperature, pulse, labored_respiration, cough, fever, sob, diarrhea, fatigue, headache, loss_of_smell, loss_of_taste, runny_nose, muscle_sore, sore_throat, high_risk_exposure_occupation, high_risk_interactions};
 
     switch (page) {
         case 1:
@@ -62,15 +99,6 @@ render() {
             )
         case 3:
             return (
-                <EthnicityOps
-                nextPage = {this.nextPage}
-                backPage = {this.backPage} 
-                handleChange = {this.handleChange}
-                vals = {vals}
-                />
-            )
-        case 4:
-            return (
                 <MedConditions
                 nextPage = {this.nextPage}
                 backPage = {this.backPage} 
@@ -79,9 +107,10 @@ render() {
                 />
             )    
 
-        case 5:
+        case 4:
         return <LastPredsPage
-        backPage = {this.backPage}/>;    
+        backPage = {this.backPage}
+        vals = {vals}/>;    
 
         default:
         break;
