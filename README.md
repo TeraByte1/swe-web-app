@@ -9,7 +9,7 @@ WEB APP DESCRIPTION
 - Nana Mimura 
 
 ## Starting the Program
-Running the web applciation on your local computer
+Running the web application on your local computer
 ```
 git clone our GitHub respository
 npm install
