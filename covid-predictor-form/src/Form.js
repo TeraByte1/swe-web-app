@@ -12,7 +12,7 @@ export class Form extends Component {
     state = {
         'page': 1,
         'me_other': "", //choice: myself or others
-        'age': 0,
+        'age': 18,
         'high_risk_exposure_occupation': false,
         'high_risk_interactions': false,
         'diabetes': false,
@@ -23,8 +23,8 @@ export class Form extends Component {
         'copd': false,
         'autoimmune_dis': false,
         'smoker': false,
-        'temperature': 0,
-        'pulse': 0,
+        'temperature': 33.5,
+        'pulse': 35,
         'labored_respiration': false,
         'cough': false,
         'fever': false,

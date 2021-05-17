@@ -30,6 +30,7 @@ export class MeOtherOps extends Component{
             <div className="next-button">
             <PrimaryButton 
             text = "Next"
+            disabled = {(vals['me_other']==="") ? true : false }
             onClick={this.goNext}
             />
             </div>

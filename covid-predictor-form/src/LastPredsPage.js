@@ -15,11 +15,7 @@ export class LastPredsPage extends Component {
     getPreds = e => {
         const url = "https://covid.joshgarde.com/nn-submit";
         this.state = this.props;
-       /* document.getElementById("pred").innerHTML=(
-        <div>
-        <Label>Spinner with label positioned to right</Label>
-        <Spinner label="Wait, wait..." ariaLive="assertive" labelPosition="right" />
-      </div> ); */
+
         axios.post(url, this.state.vals)
         .then(response => {
            console.log("Prediction: "+ response.data.prediction) 
@@ -27,7 +23,8 @@ export class LastPredsPage extends Component {
         })
         .catch(error => {
             console.log(error)
-        })
+            document.getElementById("pred").innerHTML=( "Cannot Predict at this Time" )
+        }) 
     };   
 
     render() {
